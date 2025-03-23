@@ -178,8 +178,18 @@
 
     <script>
         function openSecondMenu() {
-            document.getElementById("first-menu").classList.add("hidden");
-            document.getElementById("second-menu").classList.remove("hidden");
+            const validKey = "minhchauupkey_valid000";  // Thay "123456" bằng key hợp lệ của bạn
+            const enteredKey = document.getElementById("key-input").value;
+            const errorMessage = document.getElementById("error-message");
+
+            // Kiểm tra xem key nhập vào có hợp lệ không
+            if (enteredKey === validKey) {
+                document.getElementById("first-menu").classList.add("hidden");
+                document.getElementById("second-menu").classList.remove("hidden");
+                errorMessage.style.display = "none"; // Ẩn thông báo lỗi nếu key đúng
+            } else {
+                errorMessage.style.display = "block"; // Hiển thị thông báo lỗi nếu key sai
+            }
         }
 
         function closeMenu() {
